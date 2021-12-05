@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:paddingBottom="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/searchBtn"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_back_10"
+            android:layout_marginLeft="20dp">
+
+            <ImageView
+                android:layout_margin="10dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/search_icon"/>
+        </LinearLayout>
+
+        <TextView
+            android:textStyle="italic"
+            android:padding="30dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Muzik"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:id="@+id/menuBtn"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_back_10"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp">
+
+            <ImageView
+                android:layout_margin="10dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/menu_icon"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/musicRecyclerView"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomBar"/>
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/startTime"
+                android:layout_marginStart="10dp"
+                android:textSize="12sp"
+                android:layout_centerVertical="true"
+                android:textColor="#FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:layout_marginLeft="10dp" />
+
+            <SeekBar
+                android:id="@+id/playerSeekBar"
+                android:layout_centerVertical="true"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:progress="0"
+                android:max="100"
+                android:thumb="@drawable/custom_thumb"
+                android:layout_toEndOf="@+id/startTime"
+                android:layout_width="match_parent"
+                android:layout_toStartOf="@+id/endTime"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/startTime"
+                android:layout_toLeftOf="@+id/endTime" />
+
+            <TextView
+                android:id="@+id/endTime"
+                android:layout_marginEnd="10dp"
+                android:layout_centerVertical="true"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/previousBtn"
+                android:layout_marginEnd="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/previous_icon"
+                android:background="@drawable/round_back_10"
+                android:padding="10dp"
+                android:layout_marginRight="20dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/playPauseCard"
+                android:layout_width="110dp"
+                android:layout_height="120dp"
+                app:cardBackgroundColor="#504E59"
+                app:cardUseCompatPadding="true"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                android:outlineAmbientShadowColor="#070707"
+                android:outlineSpotShadowColor="#B9B6CA">
+
+                <ImageView
+                    android:id="@+id/playPauseImg"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/play_icon"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/nextBtn"
+                android:layout_marginStart="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/next_icon"
+                android:background="@drawable/round_back_10"
+                android:padding="10dp"
+                android:layout_marginLeft="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
